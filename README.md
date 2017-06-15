@@ -1,6 +1,7 @@
-# devops-test
+# perkbox-devops-test
 
 ### What this test is all about?
+
 This test is about setting up Terraform template and deploy the elements described on it to AWS.
 We would need an EC2 instance behind an ELB (Elastic Load Balancer) on a custom VPC with a Subnet on it. Also we would need a S3 bucket called `perkbox-devops-test` with a file uploaded on it, named `helloworld`.
 
@@ -11,6 +12,7 @@ It's extremely recommendable to do the setup manually first, verify it works and
 Create a fork of the repository and submit a Pull Request with Terraform templates and instructions to execute them.
 
 ### Instructions:
+
 * Use this example to create Terraform template:
 https://github.com/hashicorp/terraform/tree/master/examples/aws-two-tier
 
@@ -46,6 +48,9 @@ server {
 * Ask anything you need to mikel@perkbox.co.uk. Asking the correct questions can be considered as part of the test.
 
 ### References
-https://www.terraform.io/
-https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04
-https://getcomposer.org/
+
+* https://www.terraform.io/
+
+* https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04
+
+* https://getcomposer.org/
