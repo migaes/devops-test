@@ -1,22 +1,24 @@
 # perkbox-devops-test
 
-### What this test is all about?
+### What is this tes all about?
 
-This test is about setting up Terraform template and deploy the elements described on it to AWS.
-We would need an EC2 instance behind an ELB (Elastic Load Balancer) on a custom VPC with a Subnet on it. Also we would need a S3 bucket called `perkbox-devops-test` with a file uploaded on it, named `helloworld`.
+This test is all about setting up Terraform templates to deploy a set of infrastructure elements on AWS.
+We would need an `EC2` instance behind an `ELB` (Elastic Load Balancer) on a custom `VPC` with a `Subnet`. Also we will need a `S3` bucket called `perkbox-devops-test` with a file uploaded to the bucket, named `helloworld`.
 
-The EC2 instance will be based on `Ubuntu 16.04`OS with `Nginx` as a webserver and `php-fpm` as a php-cgi processor behind the web server. The code of the website will be the code on this repository (index.php),so when we type on our browser url the domain associated to the ELB this code should be executed. The code on `index.php` connects to a `S3 Bucket` and lists the objects on `perkbox-devops-test S3 bucket`, so you should see a helloworld string on your browser if everything goes alright.
+The `EC2` instance will be based on `Ubuntu 16.04`OS with `Nginx` as a webserver and `php-fpm` as a php-cgi processor behind the web server. The code of the website will be the code on this repository, `index.php`. So, when we type on the url of our browser the domain associated with the `ELB`, `index.php` should be called.
 
-It's extremely recommendable to do the setup manually first, verify it works and then move into the automation with Terraform.
+The code on `index.php` connects with a `S3` bucket and lists the objects on `perkbox-devops-test` `S3` bucket. You should see a `helloworld` message on the screen of our browser, if everything goes alright after the web page loads.
 
-Create a fork of the repository and submit a Pull Request with Terraform templates and instructions to execute them.
+It's extremely recommendable to do the setup manually first, verify it works and then move into the automation part with Terraform.
+
+Create a fork from the current repository and submit a Pull Request with Terraform templates and instructions to execute them once you're done.
 
 ### Instructions:
 
-* Use this example to create Terraform template:
+* Use this example as a starting point to create your Terraform templates:
 https://github.com/hashicorp/terraform/tree/master/examples/aws-two-tier
 
-* Use this nginx configuration:
+* Use this nginx configuration, `/etc/nginx/sites-enabled/default`:
 ```
 server {
         listen 80 default_server;
@@ -40,10 +42,11 @@ server {
         }
 }
 ```
+* Pull the code from the repository into `/var/www/html`
 
 * Use composer to download php dependencies
 
-* Don't modify index.php code
+* Don't modify `index.php` file
 
 * Ask anything you need to mikel@perkbox.co.uk. Asking the correct questions can be considered as part of the test.
 
