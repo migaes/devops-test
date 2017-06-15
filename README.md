@@ -48,7 +48,7 @@ server {
 
 * Don't modify `index.php` file
 
-* Ask anything you need to mikel@perkbox.co.uk. Asking the correct questions can be considered as part of the test.
+* Ask anything you need. Asking the correct questions is considered part of the test.
 
 ### References
 
