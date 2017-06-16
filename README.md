@@ -5,7 +5,7 @@
 This test is all about setting up Terraform templates to deploy a set of infrastructure elements on AWS.
 We would need an `EC2` instance behind an `ELB` (Elastic Load Balancer) on a custom `VPC` with a `Subnet`. Also we will need a `S3` bucket called `perkbox-devops-test` with a file uploaded to the bucket, named `helloworld`.
 
-The `EC2` instance will be based on `Ubuntu 16.04`OS with `Nginx` as a webserver and `php-fpm` as a php-cgi processor behind the web server. The code of the website will be the code on this repository, `index.php`. So, when we type on the url of our browser the domain associated with the `ELB`, `index.php` should be called.
+The `EC2` instance will be based on `Ubuntu 16.04` OS with `Nginx` as a webserver and `php-fpm` as a php fastcgi processor behind the web server. The code of the website will be the code on this repository, `index.php`. So, when we type on the url of our browser the domain associated with the `ELB`, `index.php` should be called.
 
 The code on `index.php` connects with a `S3` bucket and lists the objects on `perkbox-devops-test` `S3` bucket. You should see a `helloworld` message on the screen of our browser, if everything goes alright after the web page loads.
 
