@@ -1,6 +1,6 @@
 # perkbox-devops-test
 
-### What is this tes all about?
+### What is this test all about?
 
 This test is all about setting up Terraform templates to deploy a set of infrastructure elements on AWS.
 We would need an `EC2` instance behind an `ELB` (Elastic Load Balancer) on a custom `VPC` with a `Subnet`. Also we will need a `S3` bucket called `perkbox-devops-test` with a file uploaded to the bucket, named `helloworld`.
