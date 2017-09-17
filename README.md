@@ -1,5 +1,13 @@
 # DevOps-Test
 
+### Hi Mickey (Captain)
+
+Saw this repo and thought I'd give it a try since I was bored.
+
+Clone it, cd into terraform, run 'terraform get && terraform plan && terraform apply', then wait shortly and use the elb link provided
+
+
+
 ### What is this test all about?
 
 This test is all about setting up Terraform templates to deploy a set of infrastructure elements on AWS.

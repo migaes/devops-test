@@ -4,6 +4,7 @@ require 'vendor/autoload.php';
 
 use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
+date_default_timezone_set('Europe/London');
 
 $bucket = 'perkbox-devops-test';
 $s3 = new S3Client([
