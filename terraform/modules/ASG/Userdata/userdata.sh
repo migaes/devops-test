@@ -12,8 +12,7 @@ php composer-setup.php  --install-dir=/bin
 php -r "unlink('composer-setup.php');"
 EOF
 
-chmod u+x /root/composerinstall.sh
-/root/composerinstall.sh
+bash /root/composerinstall.sh
 
 git clone https://github.com/arehmandev/devops-test /var/www/html/application
 
