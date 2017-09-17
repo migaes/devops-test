@@ -41,3 +41,5 @@ variable "health_check_type" {
 }
 
 variable "master_elb" {}
+
+variable "perkbox_instance_profile" {}

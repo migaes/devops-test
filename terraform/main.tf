@@ -24,15 +24,16 @@ module vpc {
 }
 
 module "asg" {
-  source             = "./modules/ASG"
-  availability_zones = ["${data.aws_availability_zones.available.names[0]}", "${data.aws_availability_zones.available.names[1]}"]
-  lc_name            = "${var.lc_name}"
-  bucketname         = "${var.s3bucketname}"
-  instance_type      = "${var.instance_size}"
-  security_groups    = "${module.security.secgroup}"
-  subnets            = ["${module.vpc.aws_subnet.public1.id}", "${module.vpc.aws_subnet.public2.id}"]
-  key_name           = "${var.key_name}"
-  master_elb         = "${module.elb.elb_name}"
+  source                   = "./modules/ASG"
+  availability_zones       = ["${data.aws_availability_zones.available.names[0]}", "${data.aws_availability_zones.available.names[1]}"]
+  lc_name                  = "${var.lc_name}"
+  bucketname               = "${var.s3bucketname}"
+  instance_type            = "${var.instance_size}"
+  security_groups          = "${module.security.secgroup}"
+  subnets                  = ["${module.vpc.aws_subnet.public1.id}", "${module.vpc.aws_subnet.public2.id}"]
+  key_name                 = "${var.key_name}"
+  master_elb               = "${module.elb.elb_name}"
+  perkbox_instance_profile = "${module.IAM.perkbox_instance_profile}"
 }
 
 module "security" {
@@ -50,5 +51,10 @@ module "elb" {
 
 module "s3" {
   source     = "./modules/S3"
+  bucketname = "${var.s3bucketname}"
+}
+
+module "IAM" {
+  source     = "./modules/IAM"
   bucketname = "${var.s3bucketname}"
 }
