@@ -5,7 +5,7 @@ sudo apt-get install -y nginx php-fpm git php7.0-xml # required for aws new sdk
 
 
 ## Configure nginx, double dollar signs to escape terraform interpolation
-cat <<EOF > /etc/nginx/sites-enabled/default
+echo "
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
@@ -27,8 +27,7 @@ server {
     location ~ /\.ht {
         deny all;
     }
-}
-EOF
+}" > /etc/nginx/sites-enabled/default
 
 sudo nginx -t
 sudo systemctl reload nginx
