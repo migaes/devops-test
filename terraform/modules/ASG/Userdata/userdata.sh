@@ -4,28 +4,29 @@ sudo apt-get update -y
 sudo apt-get install -y nginx php-fpm git php7.0-xml # required for aws new sdk
 
 
-## Configure nginx
+## Configure nginx, double dollar signs to escape terraform interpolation
 cat <<EOF > /etc/nginx/sites-enabled/default
 server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
+    listen 80 default_server;
+    listen [::]:80 default_server;
 
-        index index.php
-        server_name localhost;
-        root /var/www/html/application/applicationcode;
+    root /var/www/html/application/applicationcode;
+    index index.php;
 
-        location / {
-                try_files $uri $uri/ =404;
-        }
+    server_name server_domain_or_IP;
 
-        location ~ \.php$ {
-                include snippets/fastcgi-php.conf;
-                fastcgi_pass 127.0.0.1:9000;
-        }
+    location / {
+        try_files $$uri $$uri/ =404;
+    }
 
-        location ~ /\.ht {
-                deny all;
-        }
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
 }
 EOF
 
