@@ -33,7 +33,12 @@ variable "asg_maximum_number_of_instances" {
 
 variable "health_check_grace_period" {
   description = "Number of seconds for a health check to time out"
-  default     = 300
+  default     = 30
+}
+
+variable "default_cooldown" {
+  description = "The amount of time, in seconds, after a scaling activity completes before another scaling activity can start."
+  default     = 30
 }
 
 variable "health_check_type" {
